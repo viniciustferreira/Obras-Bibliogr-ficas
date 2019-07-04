@@ -19,6 +19,9 @@ As seguintes regras devem ser seguidas nesta formatação:
 * "da", "de", "do", "das", "dos" não fazem parte do sobrenome e não iniciam por letra maiúscula.
 
 ## Tecnologias a serem utilizadas
+* Rails API 5 ou superior
+* Armazenamento de dados a sua escolha
+* Testes
 
 ## Procedimento para entrega
 Realize um fork deste repositório, desenvolva sua solução e encaminhe o seu repositório com o seu código. Arquivos compactados não serão aceitos.
