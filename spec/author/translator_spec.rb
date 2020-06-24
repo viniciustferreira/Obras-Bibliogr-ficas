@@ -17,5 +17,9 @@ RSpec.describe Author::Translator do
     it 'returns SOUZA, Claudia de' do
       expect(described_class.translate('claudia de souza')).to eq('SOUZA, Claudia de')
     end
+
+    it 'returns claudia' do
+      expect(described_class.translate('claudia')).to eq('Claudia')
+    end
   end
 end
