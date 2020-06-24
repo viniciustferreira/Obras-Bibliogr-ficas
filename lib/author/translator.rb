@@ -2,38 +2,29 @@ module Author
   class Translator
     class << self
       MIDDLE_LINK_NAME_LIST = ["da", "de", "do", "das", "dos"]
-      ANCESTOR_MIDDLE_NAME = ["filho", "filha", "neto", "neta", "sobrinho", "sobrinha", "junior"]
+      ANCESTOR_NAME = ["filho", "filha", "neto", "neta", "sobrinho", "sobrinha", "junior"]
 
       def translate(author_name)
-        check_first_name(author_name.split(' '))
+        format_complete_name(author_name.split(' '))
       end
 
-      def check_first_name(complete_name)
-        complete_name[0] = complete_name[0].capitalize
-        return complete_name if complete_name[0] == complete_name.last
-        check_middle_name(complete_name)
-      end
+      def format_complete_name(complete_name)
+        return complete_name.join.capitalize if complete_name.first == complete_name.last
 
-      def check_middle_name(complete_name)
-        if complete_name.last == complete_name[1]
-          complete_name[1] = "#{complete_name[1].upcase}, "
-          return complete_name.reverse.join
-        else
-          if MIDDLE_LINK_NAME_LIST.include?(complete_name[1])
-            complete_name[0] << " #{complete_name[1]}"
+        last_name = complete_name
+          .delete_at(complete_name.size-1)
+        first_name = complete_name.delete_at(0)
+
+        complete_name.each do |middle_name|
+          if ANCESTOR_NAME.include?(last_name)
+            last_name = last_name.prepend("#{middle_name} ") 
           end
-          check_last_name(complete_name)
-        end
-      end
 
-      def check_last_name(complete_name)
-        formatted_name = [complete_name[0]]
-        if ANCESTOR_MIDDLE_NAME.include?(complete_name[2])
-          formatted_name << "#{complete_name[1].upcase} #{complete_name[2].upcase}, "
-        else
-          formatted_name << "#{complete_name[2].upcase}, "
+          if MIDDLE_LINK_NAME_LIST.include?(middle_name)
+            first_name << " #{middle_name}"
+          end
         end
-        return formatted_name.reverse.join
+        [last_name.upcase.concat(', '), first_name.capitalize].join
       end
     end
   end
