@@ -1,0 +1,3 @@
+class Bibliography < ApplicationRecord
+
+end
