@@ -1,3 +1,9 @@
+# Funcionamento:
+
+"/v1/author/new" -> adiciona um novo nome | Params: name -> string por extenso com nome separado por espaços.
+
+"/v1/author/list" -> lista os x primeiros membros formatados conforme especificação. | Params: number_of_elements -> quantidade de nomes.
+
 
 # Obras Bibliográficas
 
