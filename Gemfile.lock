@@ -138,7 +138,7 @@ GEM
       rack (>= 0.4)
     rack-proxy (0.6.5)
       rack
-    rack-test (1.1.0)
+    rack-test (0.8.3)
       rack (>= 1.0, < 3)
     rails (6.0.3.2)
       actioncable (= 6.0.3.2)
@@ -175,6 +175,9 @@ GEM
     rspec-expectations (3.9.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
+    rspec-grape (0.0.4)
+      rack-test (~> 0.6)
+      rspec-core (~> 3.0)
     rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
@@ -244,6 +247,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
+  rspec-grape
   rspec-rails (~> 4.0.0)
   sass-rails (>= 6)
   spring
